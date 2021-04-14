@@ -1,0 +1,16 @@
+.pageHeader {
+    border-bottom: 5px solid red;
+    width: 28%;
+    color: maroon;
+    margin-bottom: 0;
+}
+
+.lineBreaker {
+    
+}
+
+@media (max-width: 600px) {
+    .pageHeader {
+        width: 50%
+    }
+}

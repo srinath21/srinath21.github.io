@@ -1,0 +1,20 @@
+.tableItem span {
+    display: list-item !important;
+    margin-left: 1.5em !important;
+}
+
+.tableItem td {
+    width: 10%;
+    padding: 1% !important;
+    border-bottom: none !important;
+}
+
+.aboutSkills ul {
+    display: inline-flex;
+}
+
+@media (max-width: 600px) {
+    .aboutSkills ul {
+        display: list-item;
+    }
+}

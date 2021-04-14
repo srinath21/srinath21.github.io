@@ -1,0 +1,11 @@
+.backGround {
+    background: url("../../assets/images/bg-img.jpg");
+    background-color: #222;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}

@@ -2,7 +2,8 @@
     border-bottom: 5px solid red;
     width: 28%;
     color: maroon;
-    margin-bottom: 0;
+    margin: 10% auto 2% auto;
+    text-align: center;
 }
 
 .lineBreaker {

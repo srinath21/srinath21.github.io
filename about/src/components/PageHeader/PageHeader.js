@@ -1,13 +1,13 @@
+import { Typography } from '@material-ui/core';
 import React from 'react';
 import './PageHeader.css'
 
 const pageHeader = (props) => {
     return (
-        <div>
-            <h1 className="pageHeader">
+        <div className="pageHeader">
+            <Typography variant="h2">
                 {props.title}
-            </h1>
-            <hr />
+            </Typography>
         </div>
     )
 }

@@ -15,34 +15,17 @@ import { ListItemText, ListItemIcon } from '@material-ui/core';
 
 const customTable = (props) => {
     let items = []
-    let i = 0;
-    while (i + 3 < props.languages.length) {
-        items.push(props.languages.slice(i, i + 3).map((item, index) => {
-            return (
-                <ListItem key={index}>
-                    <ListItemIcon>
-                        <CheckBoxIcon />
-                    </ListItemIcon>
-                    <ListItemText primary={item} />
-                </ListItem>
-            )
-        }))
 
-        i += 3
-    }
-
-    if (i < props.languages.length) {
-        items.push(props.languages.slice(i, props.languages.length).map((item, index) => {
-            return (
-                <ListItem key={index}>
-                    <ListItemIcon>
-                        <CheckBoxIcon />
-                    </ListItemIcon>
-                    <ListItemText primary={item} />
-                </ListItem>
-            )
-        }))
-    }
+    items.push(props.languages.map((item, index) => {
+        return (
+            <ListItem key={index}>
+                <ListItemIcon>
+                    <CheckBoxIcon style={{ color: "green" }} />
+                </ListItemIcon>
+                <ListItemText primary={item} />
+            </ListItem>
+        )
+    }))
 
     return (
         <React.Fragment>

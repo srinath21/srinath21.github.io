@@ -23,8 +23,8 @@ const navbar = (props) => {
     const classes = customStyles();
 
     return (
-        <div>
-            <AppBar position="static">
+        <div id="navbar-container">
+            <AppBar position="relative">
                 <Toolbar>
                     <Typography variant='h6' className={classes.nameHeader}>
                         Srinath

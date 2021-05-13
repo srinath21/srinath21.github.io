@@ -4,9 +4,10 @@ import "./CardHeader.css"
 const cardHeader = (props) => {
     return (
         <React.Fragment>
-            <h3 className="cardHeader" style={props.style}>
+            <h3 style={props.style}>
                 {props.title}
             </h3>
+            <div className="cardBorder" style={{ width: "45%" }}></div>
         </React.Fragment>
     )
 }

@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Paper } from '@material-ui/core';
+import { Box, Container, Grid, Paper, Typography } from '@material-ui/core';
 import React from 'react';
 import VisibilitySensor from "react-visibility-sensor";
 import PageHeader from '../PageHeader/PageHeader';
@@ -21,7 +21,12 @@ const skills = (props) => {
         ]
     ]
     const circularSkills = [
-
+        ["Leadership", 84],
+        ["Creativity", 72],
+        ["Management", 70],
+        ["Branding", 60],
+        ["Motivation", 73],
+        ["Marketing", 50]
     ]
 
     let float = 'left';
@@ -29,7 +34,7 @@ const skills = (props) => {
         <Container component='section' m={2}>
             <PageHeader title="Skills" />
             <Paper elevation={1}>
-                <Grid container spacing={3} style={{ margin: "5%", paddingTop: "5%" }}>
+                <Grid container xs={12} md={12} sm={12} lg={12} style={{ margin: "5% 0% 5% 0%", paddingTop: "5%" }}>
                     <VisibilitySensor>
                         {({ isVisible }) => {
                             return (linearSkills.map((item, index) => {
@@ -44,32 +49,20 @@ const skills = (props) => {
                         }}
                     </VisibilitySensor>
                 </Grid>
-                <Grid container spacing={3}>
+                <div style={{ margin: "auto", textAlign: "center", padding: "2%" }}>
+                    <Typography variant="h4" component="h4">More Skills</Typography>
+                </div>
+                <Grid container spacing={2} style={{ padding: "4%" }}>
                     <VisibilitySensor>
                         {({ isVisible }) => {
-                            const percentage = isVisible ? 66 : 0;
-                            return (
-                                <React.Fragment>
-                                    <Grid item md={2} xs={12}>
-                                        <CircularProgress value={percentage} />
+                            return (circularSkills.map((item, index) => {
+                                const percentage = isVisible ? item[1] : 0;
+                                return (
+                                    <Grid key={index} item md={2} xs={12}>
+                                        <CircularProgress value={percentage} subText={item[0]} />
                                     </Grid>
-                                    <Grid item md={2} xs={12}>
-                                        <CircularProgress value={percentage} />
-                                    </Grid>
-                                    <Grid item md={2} xs={12}>
-                                        <CircularProgress value={percentage} />
-                                    </Grid>
-                                    <Grid item md={2} xs={12}>
-                                        <CircularProgress value={percentage} />
-                                    </Grid>
-                                    <Grid item md={2} xs={12}>
-                                        <CircularProgress value={percentage} />
-                                    </Grid>
-                                    <Grid item md={2} xs={12}>
-                                        <CircularProgress value={percentage} />
-                                    </Grid>
-                                </React.Fragment>
-                            );
+                                )
+                            }))
                         }}
                     </VisibilitySensor>
                 </Grid>

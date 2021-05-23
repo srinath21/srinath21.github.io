@@ -19,10 +19,10 @@ const customTable = (props) => {
     items.push(props.languages.map((item, index) => {
         return (
             <ListItem key={index}>
-                <ListItemIcon>
+                <ListItemIcon style={{ minWidth: "30px" }}>
                     <CheckBoxIcon style={{ color: "green" }} />
                 </ListItemIcon>
-                <ListItemText primary={item} />
+                <ListItemText primary={item} style={{ width: "max-content" }} />
             </ListItem>
         )
     }))

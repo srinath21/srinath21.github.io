@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Toolbar, Button } from '@material-ui/core';
+import { makeStyles, Toolbar, Button, Container } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 
@@ -25,17 +25,19 @@ const navbar = (props) => {
     return (
         <div id="navbar-container">
             <AppBar position="relative">
-                <Toolbar>
-                    <Typography variant='h6' className={classes.nameHeader}>
-                        Srinath
+                <Container>
+                    <Toolbar>
+                        <Typography variant='h6' className={classes.nameHeader}>
+                            Srinath
                     </Typography>
-                    <div className={classes.navLinks}>
-                        <Button color='inherit'>Home</Button>
-                        <Button color='inherit'>About</Button>
-                        <Button color='inherit'>Skills</Button>
-                        <Button color='inherit'>Projects</Button>
-                    </div>
-                </Toolbar>
+                        <div className={classes.navLinks}>
+                            <Button color='inherit'>Home</Button>
+                            <Button color='inherit'>About</Button>
+                            <Button color='inherit'>Skills</Button>
+                            <Button color='inherit'>Projects</Button>
+                        </div>
+                    </Toolbar>
+                </Container>
             </AppBar>
         </div>
     )

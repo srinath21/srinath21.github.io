@@ -3,7 +3,7 @@ import { LinearProgress, Box, Typography } from '@material-ui/core'
 
 const linearProgress = (props) => {
     return (
-        <div style={{ width: "60%", margin: "auto", float: props.floatValue }}>
+        <div style={{ width: "90%", margin: "auto", float: props.floatValue }}>
             <Box >
                 <Typography variant="h5" color="textSecondary">{props.label}</Typography>
             </Box>

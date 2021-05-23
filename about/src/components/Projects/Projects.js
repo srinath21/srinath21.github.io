@@ -11,46 +11,34 @@ const projects = (props) => {
                 <PageHeader title="Projects" />
                 <Paper elevation={1}>
                     <Timeline align="alternate">
-                        <TimelineItem>
-                            <TimelineSeparator>
-                                <TimelineDot color="primary" />
-                                <TimelineConnector />
-                            </TimelineSeparator>
-                            <TimelineContent>
-                                <Paper elevation={2}>
-                                    <Card>
-                                        <CardContent>
-                                            <Typography variant="h5" component="h1">
-                                                Test
-                                            </Typography>
-                                            <Typography variant="subtitle2" style={{ fontWeight: "bold" }} component="h3">
-                                                Python Django
-                                            </Typography>
-                                            <Typography variant="body2" component="p">
-                                                This is a sample description of the project details
-                                            </Typography>
-                                        </CardContent>
-                                    </Card>
-                                </Paper>
-                            </TimelineContent>
-                        </TimelineItem>
-                        <TimelineItem>
-                            <TimelineSeparator>
-                                <TimelineDot color="secondary" />
-                                <TimelineConnector />
-                            </TimelineSeparator>
-                            <TimelineContent>
-                                <Paper elevation={3}>
-                                    <Card>
-                                        <CardContent    >
-                                            <Typography variant="h5" component="h1">
-                                                Test
-                                            </Typography>
-                                        </CardContent>
-                                    </Card>
-                                </Paper>
-                            </TimelineContent>
-                        </TimelineItem>
+                        {props.projects.map((item, index) => {
+                            return (
+                                <TimelineItem key={index}>
+                                    <TimelineSeparator>
+                                        <TimelineDot color="primary" />
+                                        {index >= (props.projects.length - 1) ? null : <TimelineConnector />
+                                        }
+                                    </TimelineSeparator>
+                                    <TimelineContent>
+                                        <Paper elevation={2}>
+                                            <Card>
+                                                <CardContent>
+                                                    <Typography variant="h5" component="h1">
+                                                        {item.title}
+                                                    </Typography>
+                                                    <Typography variant="subtitle2" style={{ fontWeight: "bold" }} component="h3">
+                                                        {item.techStack}
+                                                    </Typography>
+                                                    <Typography variant="body2" component="p">
+                                                        {item.description}
+                                                    </Typography>
+                                                </CardContent>
+                                            </Card>
+                                        </Paper>
+                                    </TimelineContent>
+                                </TimelineItem>)
+                        })
+                        }
                     </Timeline>
                 </Paper>
             </Container>

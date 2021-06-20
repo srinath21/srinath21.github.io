@@ -1,6 +1,6 @@
 import React from 'react';
 import PageHeader from '../PageHeader/PageHeader';
-import { makeStyles, Box, Paper, Avatar, Typography, Container } from '@material-ui/core';
+import { makeStyles, Box, Paper, Avatar, Typography, Container, Grid } from '@material-ui/core';
 import PersonIcon from '@material-ui/icons/Person';
 import "./About.css"
 import CardHeader from '../CardHeader/CardHeader';
@@ -23,9 +23,8 @@ const customStyles = makeStyles((theme) => ({
 }));
 
 const about = (props) => {
-    const classes = customStyles();
     const languages = ["Python", "C#", "JavaScript", "C", "C++"]
-    const frameworks = ["Django", ".NET MVC", ".NET WebAPI"]
+    const frameworks = ["Django", "Django-Rest", ".NET MVC", ".NET WebAPI", ".NET Core"]
     const libraries = ["ReactJS", "Redux", "jQuery"]
     const technologies = ["PostgreSQL", "SQL Server"]
     const aboutMe = {
@@ -33,7 +32,6 @@ const about = (props) => {
         "Date Of Birth": "24 November 1995",
         "Address": "Vidyaranyapura, Bengaluru",
         "Nationality": "Indian",
-        "Email": "test@test.com"
     }
 
     let leftPane = [];
@@ -45,29 +43,34 @@ const about = (props) => {
                 <Typography component="span">{aboutMe[item]}</Typography>
             </div>
         )
-
     }
 
     return (
-        <Container component='section' m={2}>
+        <Container component='section' m={2} id="aboutSection">
             <PageHeader title="About Me" />
-            <Paper elevation={1} className="rightCard">
-                <Avatar alt="Srinath" className="avatar">
-                    <PersonIcon className="avatar" />
-                </Avatar>
-                <CardHeader title="" style={{ "width": "80%", "margin": "10%" }} />
-                {leftPane}
-            </Paper>
-            <Paper elevation={1} className="leftCard">
-                <Container m={2}>
-                    <CardHeader title="What I do?" />
-                    <p>I'm a <strong>Software Developer</strong> primarily focused on designing and building Web Applications.</p>
-                    <Table title="Languages" languages={languages} />
-                    <Table title="Frameworks" languages={frameworks} />
-                    <Table title="Libraries" languages={libraries} />
-                    <Table title="Technologies" languages={technologies} />
-                </Container>
-            </Paper>
+            <Grid container spacing={2}>
+                <Grid item xs={12} lg={3} md={3} sm={3}>
+                    <Paper elevation={1} className="rightCard" style={{ backgroundColor: "#ececec" }}>
+                        <Avatar alt="Srinath" className="avatar">
+                            <PersonIcon className="avatar" />
+                        </Avatar>
+                        <CardHeader title="" style={{ "width": "80%", "margin": "10%" }} />
+                        {leftPane}
+                    </Paper>
+                </Grid>
+                <Grid item xs={12} lg={9} md={9} sm={9}>
+                    <Paper elevation={1} className="leftCard" style={{ backgroundColor: "#ececec" }}>
+                        <Container m={2}>
+                            <CardHeader title="What I do?" style={{ paddingTop: "2%" }} />
+                            <p style={{ paddingBottom: "1%" }}>I'm a <strong>Software Developer</strong> primarily focused on designing and building dynamic and robust Web Applications.</p>
+                            <Table title="Languages" languages={languages} />
+                            <Table title="Frameworks" languages={frameworks} />
+                            <Table title="Libraries" languages={libraries} />
+                            <Table title="Technologies" languages={technologies} />
+                        </Container>
+                    </Paper>
+                </Grid>
+            </Grid>
         </Container>
     )
 }

@@ -1,0 +1,31 @@
+.footer {
+    min-height: 25vh;
+    /*background-image: url("../../assets/images/background-img.jpg");*/
+    margin-top: 10%;
+    background-color: #2d4159;
+}
+
+.footerHeader {
+    text-align: center;
+    color: #cccccc;
+}
+
+.iconSize {
+    display: inline-block;
+    font-size: 3.5rem;
+}
+
+.label {
+    text-transform: none;
+    float:right;
+}
+
+.customButton :hover {
+    background-color: red;
+}
+
+@media (max-width: 600px) {
+    .footerHeader {
+        font-size: 40px !important;
+    }
+}

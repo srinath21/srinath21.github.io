@@ -5,7 +5,7 @@ import './PageHeader.css'
 const pageHeader = (props) => {
     return (
         <div className="pageHeader">
-            <Typography variant="h2">
+            <Typography variant="h2" component="h3" className="headerText">
                 {props.title}
             </Typography>
         </div>

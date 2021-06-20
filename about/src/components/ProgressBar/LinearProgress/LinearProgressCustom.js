@@ -1,7 +1,17 @@
 import React from 'react';
-import { LinearProgress, Box, Typography } from '@material-ui/core'
+import { LinearProgress, Box, Typography, makeStyles } from '@material-ui/core'
 
-const linearProgress = (props) => {
+const useStyles = makeStyles((theme) => ({
+    barColorPrimary: props => ({
+        backgroundColor: "rgb(223, 85, 85)"
+    }),
+    colorPrimary: props => ({
+        backgroundColor: "#f78888"
+    })
+}))
+
+const LinearProgressCustom = (props) => {
+    const classes = useStyles();
     return (
         <div style={{ width: "90%", margin: "auto", float: props.floatValue }}>
             <Box >
@@ -9,7 +19,7 @@ const linearProgress = (props) => {
             </Box>
             <Box display="flex" alignItems="center">
                 <Box width="100%" mr={1}>
-                    <LinearProgress variant="determinate" {...props} />
+                    <LinearProgress classes={{ colorPrimary: classes.colorPrimary, barColorPrimary: classes.barColorPrimary }} variant="determinate" {...props} />
                 </Box>
                 <Box minWidth={35}>
                     <Typography variant="body2" color="textSecondary">{`${Math.round(
@@ -21,4 +31,4 @@ const linearProgress = (props) => {
     )
 }
 
-export default linearProgress;
+export default LinearProgressCustom;

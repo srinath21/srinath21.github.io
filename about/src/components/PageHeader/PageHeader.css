@@ -10,8 +10,16 @@
     
 }
 
+.headerText {
+
+}
+
 @media (max-width: 600px) {
     .pageHeader {
-        width: 50%
+        width: 80%;
+    }
+
+    .headerText {
+        font-size: 45px !important;
     }
 }

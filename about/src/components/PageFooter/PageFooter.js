@@ -1,34 +1,74 @@
-import { Container, Grid, Link, Typography } from '@material-ui/core';
-import React from 'react';
-import GitHubIcon from '@material-ui/icons/GitHub';
+import { Button, Container, Grid, Link, Typography } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TelegramIcon from '@material-ui/icons/Telegram';
+import EmailRoundedIcon from '@material-ui/icons/EmailRounded';
+import "./PageFooter.css"
 
-const pageFooter = (props) => {
+const PageFooter = (props) => {
+
+    const [state, setState] = useState({
+        mobileView: false,
+    });
+
+    const { mobileView } = state;
+
+    useEffect(() => {
+        const setResponsiveness = () => {
+            return window.innerWidth < 900 ? setState((prevState) => ({ ...prevState, mobileView: true })) :
+                setState((prevState) => ({ ...prevState, mobileView: false }))
+        }
+
+        setResponsiveness();
+        window.addEventListener("resize", () => setResponsiveness());
+
+        return () => {
+            window.removeEventListener("resize", () => setResponsiveness());
+        }
+    }, []);
+
     return (
-        <div style={{ minHeight: "25vh", backgroundColor: "grey", marginTop: "10%" }}>
+        <div className="footer">
             <Container component='section' m={2}>
-                <Grid container spacing={3}>
-                    <Grid xs={12} md={12} sm={12} lg={12} style={{ margin: "3%" }}>
-                        <Typography component="h4" variant="h4" color="textSecondary" style={{ textAlign: "center" }}>
+                <Grid container spacing={4}>
+                    <Grid item xs={12} md={12} sm={12} lg={12} style={{ margin: "3%" }}>
+                        <Typography component="h4" variant="h3" style={{ textAlign: "center", color: "#ccc" }}>
                             Contact Me
                         </Typography>
                     </Grid>
-                    <Grid item xs={12} md={12} sm={12} lg={12} style={{ textAlign: "center" }} >
-                        <Link href="https://github.com/srinath21" color="inherit" style={{ margin: "2%" }}>
-                            <GitHubIcon style={{ fontSize: "2.5rem" }} />
-                        </Link>
-                        <Link href="https://www.linkedin.com/in/srinath-r-a0304512a/" style={{ margin: "2%" }}>
-                            <LinkedInIcon style={{ fontSize: "2.5rem" }} />
-                        </Link>
-                        <Link href="https://t.me/Srinath21" style={{ margin: "2%" }}>
-                            <TelegramIcon style={{ fontSize: "2.5rem" }} />
-                        </Link>
+                    <Grid item xs={12} md={12} sm={12} lg={12} style={{ textAlign: "center", marginBottom: "5%" }} >
+                        <Grid container spacing={4}>
+                            {props.isMobile ?
+                                <Grid item xs={12}>
+                                    <Button variant="outlined" onClick={props.clicked} style={{ color: "#5da2d5" }}>
+                                        <EmailRoundedIcon fontSize="large" className="iconSize" />
+                                        <Typography variant="h4" component="h6" className="label">Mail</Typography>
+                                    </Button>
+                                </Grid>
+                                : null
+                            }
+                            <Grid item xs={12} sm={6}>
+                                <Button variant="outlined" className="customButton">
+                                    <Link href="https://www.linkedin.com/in/srinath-r-a0304512a/" style={{ margin: "2%", color: "#5da2d5", minWidth: "100%" }}>
+                                        <LinkedInIcon fontSize="large" className="iconSize" />
+                                        <Typography variant="h4" component="h6" className="label">LinkedIn</Typography>
+                                    </Link>
+                                </Button>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <Button variant="outlined">
+                                    <Link href="https://t.me/Srinath21" style={{ margin: "2%", color: "#5da2d5", minWidth: "100%" }}>
+                                        <Typography variant="h4" component="h6" className="label">Telegram</Typography>
+                                        <TelegramIcon fontSize="large" className="iconSize" />
+                                    </Link>
+                                </Button>
+                            </Grid>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Container>
-        </div>
+        </div >
     )
 }
 
-export default pageFooter;
+export default PageFooter;

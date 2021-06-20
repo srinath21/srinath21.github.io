@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
-import { Container, Box, Paper, Avatar, Fab } from '@material-ui/core'
+import { Link, Box, Paper, Avatar, Fab } from '@material-ui/core'
 import DescriptionOutlinedIcon from '@material-ui/icons/DescriptionOutlined';
 import EmailRoundedIcon from '@material-ui/icons/EmailRounded';
 import "./Resume.css"
@@ -10,6 +10,8 @@ import Projects from '../../components/Projects/Projects';
 import SimpleModal from '../../components/SimpleModal/SimpleModal';
 import PageFooter from '../../components/PageFooter/PageFooter';
 import resume from '../../assets/Srinath.docx';
+import { Typography } from '@material-ui/core';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 class Resume extends Component {
     constructor(props) {
@@ -33,7 +35,8 @@ class Resume extends Component {
                 }
             ],
             open: false,
-            emailText: "srinathrao921@gmail.com"
+            emailText: "srinathrao921@gmail.com",
+            mobileView: false
         }
     }
 
@@ -47,8 +50,18 @@ class Resume extends Component {
             topBorder >= 0 ?
                 document.getElementsByTagName("header")[0].classList.remove("fixed") :
                 document.getElementsByTagName("header")[0].classList.add("fixed");
-        })
-        console.log(process.env.PUBLIC_URL)
+        });
+        const setResponsiveness = () => {
+            return window.innerWidth < 900 ? this.setState((prevState) => ({ ...prevState, mobileView: true })) :
+                this.setState((prevState) => ({ ...prevState, mobileView: false }))
+        }
+
+        setResponsiveness();
+        window.addEventListener("resize", () => setResponsiveness());
+
+        return () => {
+            window.removeEventListener("resize", () => setResponsiveness());
+        }
     }
 
     componentWillUnmount() {
@@ -66,34 +79,50 @@ class Resume extends Component {
     render() {
         return (
             <React.Fragment>
-                <Box component="section" m={0} className="backGround" >
+                <Box component="section" m={0} className="backGround" id="homeSection" >
                     <div style={{ color: "white", textAlign: "center" }}>
-                        <Avatar style={{ "margin": "auto", "height": "200px", "width": "200px", "top": "40vh" }}>SR</Avatar>
-                        <h1 style={{ top: "40vh", position: "relative" }}>
-                            Hi, I'm Srinath
-                        </h1>
-                        <code style={{ "fontSize": "110%", "top": "40vh", position: "relative" }}>Software Developer</code>
+                        {/*<Avatar style={{ "margin": "auto", "height": "200px", "width": "200px", "top": "40vh" }}>SR</Avatar>*/}
+                        <div style={{ top: "40vh", position: "relative" }}>
+                            <Typography variant="h3" component="h6" className="preNameStyle" >
+                                Hello there, I'm
+                            </Typography>
+                            <Typography variant="h1" component="h1" className="nameStyle">
+                                SRINATH
+                            </Typography>
+                            <code className="descriptionStyle">I'm a Computer Science Engineer, specializing in Full Stack Web Developement <br />and interested in Machine Learning and Data Science</code>
+                            <br />
+                            <span style={{ position: "relative", top: "15px" }}>
+                                <Link href="https://github.com/srinath21" color="inherit" style={{ margin: "2%" }}>
+                                    <GitHubIcon fontSize="large" />
+                                </Link>
+                            </span>
+                        </div>
                     </div>
                 </Box>
-                <Navbar />
+                <Navbar isMobile={this.state.mobileView} />
                 <hr className="sep-2"></hr>
                 <About />
-                <hr className="sep-2"></hr>
                 <Skills />
                 <Projects projects={this.state.projects} />
-                <PageFooter />
-                <a href={resume}>
-                    <Fab variant="extended" style={{ left: "92%", bottom: "10%", position: "fixed" }}>
-                        <DescriptionOutlinedIcon style={{ margin: "5%" }} />
-                        <span style={{ fontWeight: "bold" }}>Resume</span>
-                    </Fab>
-                </a>
-                <Fab variant="extended" style={{ left: "86%", bottom: "10%", position: "fixed" }} onClick={this.handleOpenMail} >
-                    <EmailRoundedIcon style={{ margin: "5%" }} />
-                    <span style={{ fontWeight: "bold" }}>Mail</span>
-                </Fab>
+                <PageFooter clicked={this.handleOpenMail} isMobile={this.state.mobileView} />
+                {!this.state.mobileView ?
+                    (
+                        <React.Fragment>
+                            <a href={resume}>
+                                <Fab variant="extended" style={{ left: "92%", bottom: "10%", position: "fixed", color: "aliceblue", backgroundColor: "#026670" }}>
+                                    <DescriptionOutlinedIcon style={{ margin: "5%" }} />
+                                    <span style={{ fontWeight: "bold" }}>Resume</span>
+                                </Fab>
+                            </a>
+                            <Fab variant="extended" style={{ left: "86%", bottom: "10%", position: "fixed", color: "aliceblue", backgroundColor: "#026670" }} onClick={this.handleOpenMail} >
+                                <EmailRoundedIcon style={{ margin: "5%" }} />
+                                <span style={{ fontWeight: "bold" }}>Mail</span>
+                            </Fab>
+                        </React.Fragment>
+                    ) : null
+                }
                 <SimpleModal email={this.state.emailText} open={this.state.open} onClose={this.handleClose.bind(this)} />
-            </React.Fragment>
+            </React.Fragment >
         )
     }
 }

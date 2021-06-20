@@ -31,9 +31,9 @@ const skills = (props) => {
 
     let float = 'left';
     return (
-        <Container component='section' m={2}>
+        <Container component='section' m={2} id="skillsSection">
             <PageHeader title="Skills" />
-            <Paper elevation={1}>
+            <Paper elevation={1} style={{ backgroundColor: "#ececec" }}>
                 <Grid container xs={12} md={12} sm={12} lg={12} style={{ margin: "5% 0% 5% 0%", paddingTop: "5%" }}>
                     <VisibilitySensor>
                         {({ isVisible }) => {
@@ -59,7 +59,7 @@ const skills = (props) => {
                                 const percentage = isVisible ? item[1] : 0;
                                 return (
                                     <Grid key={index} item md={2} xs={12}>
-                                        <CircularProgress value={percentage} subText={item[0]} />
+                                        <CircularProgress value={percentage} style={{ color: "green" }} subText={item[0]} />
                                     </Grid>
                                 )
                             }))

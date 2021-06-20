@@ -13,6 +13,7 @@
     "react-circular-progressbar": "^2.0.4",
     "react-dom": "^16.13.1",
     "react-scripts": "^4.0.3",
+    "react-scroll": "^1.8.2",
     "react-visibility-sensor": "^5.1.1"
   },
   "scripts": {

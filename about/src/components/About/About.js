@@ -48,7 +48,7 @@ const about = (props) => {
                     <Paper elevation={1} className="leftCard" style={{ backgroundColor: "#ececec" }}>
                         <Container m={2}>
                             <CardHeader title="What I do?" style={{ paddingTop: "2%" }} />
-                            <p style={{ paddingBottom: "1%" }}>I'm a <strong>Software Developer</strong> primarily focused on designing and building dynamic and robust Web Applications.</p>
+                            <p style={{ paddingBottom: "1%" }}>I'm a <strong>Software Developer</strong> primarily focused on developing dynamic and robust Web Applications.</p>
                             <Table title="Languages" languages={languages} />
                             <Table title="Frameworks" languages={frameworks} />
                             <Table title="Libraries" languages={libraries} />

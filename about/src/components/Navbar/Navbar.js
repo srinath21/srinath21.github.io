@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { makeStyles, Toolbar, Container, Drawer, ListItemText, ListItem } from '@material-ui/core';
+import React, { useState } from 'react';
+import { makeStyles, Toolbar, Container, Drawer, ListItem } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Link, animateScroll as scroll } from 'react-scroll'
+import { Link } from 'react-scroll'
 
 const customStyles = makeStyles((theme) => ({
     nameHeader: {
@@ -73,7 +73,7 @@ const Navbar = (props) => {
                             </Link>
                             <div className={classes.navLinks}>
                                 <Link className={classes.navItem} color='inherit' to="homeSection" activeClass={classes.navItemActive} smooth={true} spy={true}>Home</Link>
-                                <Link className={classes.navItem} color='inherit' to="aboutSection" activeClass={classes.navItemActive} smooth={true} spy={true} offset={-100}>About</Link>
+                                <Link className={classes.navItem} color='inherit' to="aboutSection" activeClass={classes.navItemActive} smooth={true} spy={true} offset={-150}>About</Link>
                                 <Link className={classes.navItem} color='inherit' to="skillsSection" activeClass={classes.navItemActive} smooth={true} spy={true} offset={-110}>Skills</Link>
                                 <Link className={classes.navItem} color='inherit' to="projectSection" activeClass={classes.navItemActive} smooth={true} spy={true} offset={-150}>Projects</Link>
                             </div>

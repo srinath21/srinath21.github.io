@@ -7,7 +7,7 @@ const cardHeader = (props) => {
             <h3 style={props.style}>
                 {props.title}
             </h3>
-            <div className="cardBorder" style={{ width: "45%" }}></div>
+            <div className="cardBorder" style={{ ...props.style, width: "45%" }}></div>
         </React.Fragment>
     )
 }

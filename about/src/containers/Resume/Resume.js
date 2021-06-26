@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
-import { Link, Box, Paper, Avatar, Fab } from '@material-ui/core'
+import { Link, Box, Fab } from '@material-ui/core'
 import DescriptionOutlinedIcon from '@material-ui/icons/DescriptionOutlined';
 import EmailRoundedIcon from '@material-ui/icons/EmailRounded';
 import "./Resume.css"
@@ -119,7 +119,14 @@ class Resume extends Component {
                                 <span style={{ fontWeight: "bold" }}>Mail</span>
                             </Fab>
                         </React.Fragment>
-                    ) : null
+                    ) :
+                    (
+                        <a href={resume}>
+                            <Fab variant="extended" style={{ left: "80%", bottom: "10%", position: "fixed", color: "aliceblue", backgroundColor: "#026670" }}>
+                                <DescriptionOutlinedIcon style={{ margin: "5%" }} />
+                            </Fab>
+                        </a>
+                    )
                 }
                 <SimpleModal email={this.state.emailText} open={this.state.open} onClose={this.handleClose.bind(this)} />
             </React.Fragment >

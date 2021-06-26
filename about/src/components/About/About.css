@@ -1,7 +1,9 @@
 .avatar {
     height: auto !important;
     width: auto !important;
+    display: block !important;
     margin: 7%;
+    padding-top: 3%;
 }
 
 .avatarContent {

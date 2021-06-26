@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 const LinearProgressCustom = (props) => {
     const classes = useStyles();
     return (
-        <div style={{ width: "90%", margin: "auto", float: props.floatValue }}>
+        <div style={{ width: "90%", margin: "auto", float: props.float }}>
             <Box >
                 <Typography variant="h5" color="textSecondary">{props.label}</Typography>
             </Box>

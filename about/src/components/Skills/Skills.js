@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Paper, Typography } from '@material-ui/core';
+import { Container, Grid, Paper, Typography } from '@material-ui/core';
 import React from 'react';
 import VisibilitySensor from "react-visibility-sensor";
 import PageHeader from '../PageHeader/PageHeader';
@@ -34,7 +34,7 @@ const skills = (props) => {
         <Container component='section' m={2} id="skillsSection">
             <PageHeader title="Skills" />
             <Paper elevation={1} style={{ backgroundColor: "#ececec" }}>
-                <Grid container xs={12} md={12} sm={12} lg={12} style={{ margin: "5% 0% 5% 0%", paddingTop: "5%" }}>
+                <Grid container style={{ margin: "5% 0% 5% 0%", paddingTop: "5%" }}>
                     <VisibilitySensor>
                         {({ isVisible }) => {
                             return (linearSkills.map((item, index) => {
@@ -42,7 +42,7 @@ const skills = (props) => {
                                 const percentage = isVisible ? item[1] : 0;
                                 return (
                                     <Grid key={index} item md={6} xs={12}>
-                                        <LinearProgress value={percentage} floatValue={float} label={item[0]} />
+                                        <LinearProgress value={percentage} float={float} label={item[0]} />
                                     </Grid>
                                 )
                             }))

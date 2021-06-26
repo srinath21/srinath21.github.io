@@ -1,26 +1,11 @@
 import React from 'react';
 import PageHeader from '../PageHeader/PageHeader';
-import { makeStyles, Box, Paper, Avatar, Typography, Container, Grid } from '@material-ui/core';
-import PersonIcon from '@material-ui/icons/Person';
+import { Paper, Avatar, Typography, Container, Grid } from '@material-ui/core';
 import "./About.css"
 import CardHeader from '../CardHeader/CardHeader';
 import Table from './Table/Table'
+import avatar from '../../assets/images/Srinath.jpg'
 
-const customStyles = makeStyles((theme) => ({
-    root: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        '& > *': {
-            margin: theme.spacing(5),
-            width: theme.spacing(60),
-            // height: theme.spacing(16),
-        },
-    },
-    large: {
-        height: theme.spacing(35),
-        width: theme.spacing(35)
-    }
-}));
 
 const about = (props) => {
     const languages = ["Python", "C#", "JavaScript", "C", "C++"]
@@ -35,14 +20,17 @@ const about = (props) => {
     }
 
     let leftPane = [];
+    let i = 0;
 
     for (var item in aboutMe) {
         leftPane.push(
-            <div className="avatarContent">
+            <div className="avatarContent" key={i}>
                 <Typography component='strong' style={{ fontWeight: "bold" }}>{item}: </Typography>
                 <Typography component="span">{aboutMe[item]}</Typography>
             </div>
         )
+
+        i++;
     }
 
     return (
@@ -51,10 +39,8 @@ const about = (props) => {
             <Grid container spacing={2}>
                 <Grid item xs={12} lg={3} md={3} sm={3}>
                     <Paper elevation={1} className="rightCard" style={{ backgroundColor: "#ececec" }}>
-                        <Avatar alt="Srinath" className="avatar">
-                            <PersonIcon className="avatar" />
-                        </Avatar>
-                        <CardHeader title="" style={{ "width": "80%", "margin": "10%" }} />
+                        <Avatar alt="Srinath" variant="circle" className="avatar" src={avatar}></Avatar>
+                        <CardHeader title="" style={{ "width": "80%", "margin": "10% auto 10% auto" }} />
                         {leftPane}
                     </Paper>
                 </Grid>

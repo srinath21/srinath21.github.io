@@ -1,4 +1,4 @@
-import { Dialog, DialogTitle, Link, List, ListItem, ListItemText, Typography } from '@material-ui/core';
+import { Dialog, Link, List, ListItem, Typography } from '@material-ui/core';
 import React from 'react';
 
 const simpleModal = (props) => {

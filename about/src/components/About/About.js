@@ -40,7 +40,7 @@ const about = (props) => {
                 <Grid item xs={12} lg={3} md={3} sm={3}>
                     <Paper elevation={1} className="rightCard" style={{ backgroundColor: "#ececec" }}>
                         <Avatar alt="Srinath" variant="circle" className="avatar" src={avatar}></Avatar>
-                        <CardHeader title="" style={{ "width": "80%", "margin": "10% auto 10% auto" }} />
+                        <CardHeader title="" style={{ "width": "80%", "margin": "10% auto 5% auto" }} />
                         {leftPane}
                     </Paper>
                 </Grid>

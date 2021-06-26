@@ -9,7 +9,7 @@ import Skills from '../../components/Skills/Skills';
 import Projects from '../../components/Projects/Projects';
 import SimpleModal from '../../components/SimpleModal/SimpleModal';
 import PageFooter from '../../components/PageFooter/PageFooter';
-import resume from '../../assets/Srinath.docx';
+import resume from '../../assets/Srinath.pdf';
 import { Typography } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
@@ -109,12 +109,12 @@ class Resume extends Component {
                     (
                         <React.Fragment>
                             <a href={resume}>
-                                <Fab variant="extended" style={{ left: "92%", bottom: "10%", position: "fixed", color: "aliceblue", backgroundColor: "#026670" }}>
+                                <Fab variant="extended" className="resume">
                                     <DescriptionOutlinedIcon style={{ margin: "5%" }} />
                                     <span style={{ fontWeight: "bold" }}>Resume</span>
                                 </Fab>
                             </a>
-                            <Fab variant="extended" style={{ left: "86%", bottom: "10%", position: "fixed", color: "aliceblue", backgroundColor: "#026670" }} onClick={this.handleOpenMail} >
+                            <Fab variant="extended" className="mail" >
                                 <EmailRoundedIcon style={{ margin: "5%" }} />
                                 <span style={{ fontWeight: "bold" }}>Mail</span>
                             </Fab>
@@ -122,7 +122,7 @@ class Resume extends Component {
                     ) :
                     (
                         <a href={resume}>
-                            <Fab variant="extended" style={{ left: "80%", bottom: "10%", position: "fixed", color: "aliceblue", backgroundColor: "#026670" }}>
+                            <Fab variant="extended" className="resumeMobile">
                                 <DescriptionOutlinedIcon style={{ margin: "5%" }} />
                             </Fab>
                         </a>

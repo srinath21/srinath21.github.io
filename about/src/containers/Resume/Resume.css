@@ -38,6 +38,63 @@ hr.sep-2 {
   position: relative
 }
 
+.resume {
+  left: 92%;
+  bottom: 7%;
+  position: fixed !important;
+  color: aliceblue !important;
+  background-color: #026670 !important;
+}
+
+.mail {
+  left: 86%;
+  bottom: 7%;
+  position: fixed !important;
+  color: aliceblue !important;
+  background-color: #026670 !important;
+}
+
+.resumeMobile {
+  left: 90%;
+  bottom: 10%;
+  position: fixed !important;
+  color: aliceblue;
+  background-color: #026670 !important;
+}
+
+@media (max-width: 1600px){
+  .resume {
+    left: 90%;
+  }
+
+  .mail {
+    bottom: 17%;
+    left: 90%
+  }
+}
+
+@media (max-width: 1250px) {
+  .resume {
+    left: 88%
+  }
+
+  .mail {
+    bottom: 17%;
+    left: 88%
+  }
+}
+
+@media (max-width: 1050px) {
+  .resume {
+    left: 85%;
+  }
+
+  .mail {
+    left: 85%;
+    bottom: 17%
+  }
+}
+
 @media (max-width: 900px) {
   .nameStyle {
     font-size: 45px !important;
@@ -49,5 +106,11 @@ hr.sep-2 {
 
   .descriptionStyle {
     font-size: 15px  !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .resumeMobile {
+    left: 80%;
   }
 }

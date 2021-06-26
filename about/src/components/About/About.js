@@ -11,7 +11,7 @@ const about = (props) => {
     const languages = ["Python", "C#", "JavaScript", "C", "C++"]
     const frameworks = ["Django", "Django-Rest", ".NET MVC", ".NET WebAPI", ".NET Core"]
     const libraries = ["ReactJS", "Redux", "jQuery"]
-    const technologies = ["PostgreSQL", "SQL Server"]
+    const technologies = ["PostgreSQL", "SQL Server", "MongoDB"]
     const aboutMe = {
         "Name": "Srinath R",
         "Date Of Birth": "24 November 1995",
